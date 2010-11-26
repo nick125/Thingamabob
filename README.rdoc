@@ -3,6 +3,14 @@ Thingamabob is a Java-based Turing machine written by Nicholas Kamper, Drew Hill
 
 Thingamabob uses a custom language called Machine Instruction Definition Language (MIDL) to define the behavior of the Turing Machine. 
 
+== Quick-start
+
+* Grab the jar file from the Downloads section and execute it.
+* Click on Machine->Tape->Load Tape and load a tape from the documentation/scripts folder of the Git repository
+* Click on Machine->Instruction Set->Load and load the matching Instruction Set from the documentation/scripts folder
+* Click on Machine->Run
+* If you want to rerun the machine, reset the tape (Machine->Tape->Reset Tape) first!
+
 == MIDL Primer
 === About MIDL
 Machine Instruction Definition Language (known as MIDL) is a pseudo-language 
