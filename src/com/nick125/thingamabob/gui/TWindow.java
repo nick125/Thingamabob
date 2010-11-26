@@ -312,13 +312,16 @@ public class TWindow extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             Component frame = new JFrame();
-            String msg = "Thingamabob<br/>" +
+            String msg = "<html>"+
+                         "Thingamabob<br/>" +
                          "A Java-based Turing Machine Emulator<br/>" +
                          "Licensed under the MIT/X11 License<br/>" +
                          "<b>Developers</b>:" +
                          "Nicholas Kamper (kampernj@rose-hulman.edu) <br />" +
-                         "Drew Hill and Travis Baumbaugh";
+                         "Drew Hill and Travis Baumbaugh" +
+                         "</html>";
             JLabel label = new JLabel(msg);
+
             JOptionPane.showMessageDialog(frame, label, "About",
                     JOptionPane.INFORMATION_MESSAGE);
         }
