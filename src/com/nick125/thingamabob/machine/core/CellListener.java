@@ -1,4 +1,4 @@
-package simulation.machine.core;
+package com.nick125.thingamabob.machine.core;
 
 /**
  * A class that can listen to Cell events.

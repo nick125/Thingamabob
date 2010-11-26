@@ -1,10 +1,34 @@
-package simulation.gui;
+/*
+ * Thingamabob - A Java-based Turing Machine Emulator
+ * Copyright (c) 2010 Nicholas Kamper, Drew Hill, Travis Baumbaugh
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
 
-import simulation.machine.core.Machine;
-import simulation.machine.core.SimpleInstSet;
-import simulation.machine.core.Tape;
-import simulation.parser.Parser;
-import simulation.parser.ParsingError;
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
+
+package com.nick125.thingamabob.gui;
+
+import com.nick125.thingamabob.machine.core.Machine;
+import com.nick125.thingamabob.machine.core.SimpleInstSet;
+import com.nick125.thingamabob.machine.core.Tape;
+import com.nick125.thingamabob.parser.Parser;
+import com.nick125.thingamabob.parser.ParsingError;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
@@ -24,8 +48,9 @@ import java.util.TimeZone;
  * @author baumbata. Created Oct 19, 2010.
  */
 public class TWindow extends JFrame {
-    private static final Dimension SIZE = new Dimension(800, 600);
-    private static final String TITLE = "Turing Machine Simulator";
+    private static final Dimension SIZE = new Dimension(800, 400);
+    private static final String TITLE = "Thingamabob";
+
     private TStatusBar statusBar;
     private int delay = 10; // in Hz
 
@@ -81,6 +106,7 @@ public class TWindow extends JFrame {
 
     private JMenuBar createMenu() {
         JMenuBar menubar = new JMenuBar();
+
         /* File Menu */
         JMenu fileMenu = new JMenu("File");
         fileMenu.add(new QuitProgram());
@@ -290,7 +316,7 @@ public class TWindow extends JFrame {
                          "A Java-based Turing Machine Emulator<br/>" +
                          "Licensed under the MIT/X11 License<br/>" +
                          "<b>Developers</b>:" +
-                         "Nicholas Kamper (kampernj@rose-hulman.edu)" +
+                         "Nicholas Kamper (kampernj@rose-hulman.edu) <br />" +
                          "Drew Hill and Travis Baumbaugh";
             JLabel label = new JLabel(msg);
             JOptionPane.showMessageDialog(frame, label, "About",
@@ -337,5 +363,5 @@ public class TWindow extends JFrame {
             }
 
         }
-	}
+    }
 }
