@@ -1,3 +1,63 @@
 == What is Thingamabob?
 Thingamabob is a Java-based Turing machine written by Nicholas Kamper, Drew Hill, and Travis Baumbaugh. This project was written as part of the CSSE221 course at the {Rose-Hulman Institute of Technology}[http://www.rose-hulman.edu] in Terre Haute, IN.
 
+Thingamabob uses a custom language called Machine Instruction Definition Language (MIDL) to define the behavior of the Turing Machine. 
+
+== MIDL Primer
+=== About MIDL
+Machine Instruction Definition Language (known as MIDL) is a pseudo-language 
+defined for the purpose of this project. It allows the behavior of a basic 
+Turing machine to be defined in a text-based language. 
+
+===MIDL Keywords
+DEFINE/ENDDEFINE - Creates a new instruction block. DEFINE takes one argument, 
+	the mnemonic (or "name") for the new instruction.
+
+IF/ENDIF - A conditional checking the value of the tape. Takes one argument, 
+	the value on the tape to check for.
+
+GOTO - Tells the machine what instruction to execute next. Takes one argument, 
+	the mnemonic of the next instruction. Note that the compiler does not check 
+	that this is a valid reference -- if you attempt to set the next instruction 
+	to an instruction that does not exist, the machine will fail at runtime.
+
+WRITE - Tells the machine to write a different value to the tape at the current 
+	head position. Takes one argument, the new value to write.
+
+MOVE - Tells the machine to move the tape in a different direction. Takes one 
+	argument, either LEFT or RIGHT.
+
+DEFAULT - Tells the machine which instruction to start with. Takes one argument,
+	the Mnemonic of the instruction to start with. At the present, the machine
+	will automatically default to the first instruction defined if the default
+	function is not explicitly set, but this behavior may change in future 
+	releases.
+
+===Example MIDL Program w/ comments
+//
+// Bitchanger - 
+//
+// A program that will take a tape that looks something like "#000000Y". This
+// program will then iterate over the tape from the initial value, going to the
+// right changing each 0 to an X until it hits a Y. Once it hits a Y, it will 
+// start going to the left. When it encounters an X, it'll skip it. When it 
+// encounters the #, the machine will halt.
+//
+DEFINE bitchanger 		// Defines a new instruction called "bitchanger"
+	IF X 				// If the value of the tape is "X"
+		MOVE LEFT 		// Move to the left
+		GOTO bitchanger // Goto bitchanger, or this same function.
+	ENDIF 				// End the IF X block. 
+	IF 0
+		WRITE X			// Writes the value "X" to the tape
+		MOVE RIGHT
+		GOTO bitchanger
+	ENDIF
+	IF Y
+		MOVE LEFT
+		GOTO bitchanger
+	ENDIF
+	IF #
+		HALT			// Tells the machine to stop execution
+	ENDIF
+ENDDEFINE 				// Ends the DEFINE bitchanger block.
