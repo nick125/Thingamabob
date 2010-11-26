@@ -46,10 +46,10 @@ Tells the machine which instruction to start with. Takes one argument, the Mnemo
  // start going to the left. When it encounters an X, it'll skip it. When it 
  // encounters the #, the machine will halt.
  //
- DEFINE bitchanger 		// Defines a new instruction called "bitchanger"
+ DEFINE bitchanger 			// Defines a new instruction called "bitchanger"
  	IF X 				// If the value of the tape is "X"
  		MOVE LEFT 		// Move to the left
- 		GOTO bitchanger // Goto bitchanger, or this same function.
+ 		GOTO bitchanger 	// Goto bitchanger, or this same function.
  	ENDIF 				// End the IF X block. 
  	IF 0
  		WRITE X			// Writes the value "X" to the tape
