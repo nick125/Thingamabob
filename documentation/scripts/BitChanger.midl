@@ -1,0 +1,30 @@
+//
+// Bitchanger - 
+//
+// A program that will take a tape that looks something like "#000000Y". This
+// program will then iterate over the tape from the initial value, going to the
+// right changing each 0 to an X until it hits a Y. Once it hits a Y, it will 
+// start going to the left. When it encounters an X, it'll skip it. When it 
+// encounters the #, the machine will halt.
+//
+
+DEFAULT bitchanger
+
+DEFINE bitchanger
+	IF X
+		MOVE LEFT
+		GOTO bitchanger
+	ENDIF
+	IF 0
+		WRITE X
+		MOVE RIGHT
+		GOTO bitchanger
+	ENDIF
+	IF Y
+		MOVE LEFT
+		GOTO bitchanger
+	ENDIF
+	IF #
+		HALT
+	ENDIF
+ENDDEFINE

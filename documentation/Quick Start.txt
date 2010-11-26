@@ -1,0 +1,6 @@
+-- Quick Start --
+ * Open the Turing Machine
+ * Load one of the instruction sets from the "testing" folder
+ * Load one of the tapes containing the instruction set name from the same 
+   "testing" folder that you found the instruction set
+ * Hit Machine->Run! :)

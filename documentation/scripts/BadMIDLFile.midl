@@ -1,0 +1,5 @@
+DEFINE function
+	IF X
+		GOTO y
+	ENDIF
+	GOTO x
