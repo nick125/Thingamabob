@@ -1,5 +1,5 @@
 <project name="Thingamabob" basedir="." default="main">
-	<property name="version"	value="0.1" />
+	<property name="version"	value="0.1.1" />
 
 	<property name="src.dir"	value="src" />
 	<property name="build.dir"	value="build" />
