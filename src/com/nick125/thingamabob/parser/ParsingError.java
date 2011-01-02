@@ -31,25 +31,25 @@ package com.nick125.thingamabob.parser;
  */
 public class ParsingError extends Exception {
 
-    private String message;
+	private String message;
 
-    /**
-     * Creates a new error instance with the given message
-     *
-     * @param message
-     */
-    public ParsingError(String message) {
-        this.message = message;
-    }
-
-    /**
-     * Returns the error message.
-     *
-     * @return Returns the message.
-     */
-    @Override
-    public String getMessage() {
-        return this.message;
+	/**
+	 * Creates a new error instance with the given message
+	 *
+	 * @param message
+	 */
+	public ParsingError(String message) {
+		this.message = message;
 	}
+
+	/**
+	 * Returns the error message.
+	 *
+	 * @return Returns the message.
+	 */
+	@Override
+		public String getMessage() {
+			return this.message;
+		}
 
 }

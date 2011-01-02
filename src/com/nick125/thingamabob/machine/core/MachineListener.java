@@ -30,10 +30,10 @@ package com.nick125.thingamabob.machine.core;
  * @author kampernj. Created Oct 29, 2010.
  */
 public interface MachineListener {
-    /**
-     * Handles an event from the machine.
-     *
-     * @param event
-     */
-    public void machineEvent(MachineEvent event);
+	/**
+	 * Handles an event from the machine.
+	 *
+	 * @param event
+	 */
+	public void machineEvent(MachineEvent event);
 }

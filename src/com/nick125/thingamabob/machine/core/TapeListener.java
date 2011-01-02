@@ -30,10 +30,10 @@ package com.nick125.thingamabob.machine.core;
  * @author kampernj. Created Oct 29, 2010.
  */
 public interface TapeListener {
-    /**
-     * Handles a tape event
-     *
-     * @param event
-     */
-    public void tapeEvent(TapeEvent event);
+	/**
+	 * Handles a tape event
+	 *
+	 * @param event
+	 */
+	public void tapeEvent(TapeEvent event);
 }

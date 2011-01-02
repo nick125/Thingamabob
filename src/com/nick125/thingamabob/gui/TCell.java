@@ -39,60 +39,60 @@ import java.awt.*;
  */
 
 public class TCell<T> extends JPanel implements CellListener {
-    private Cell<T> parentCell;
-    private JLabel cellValue;
-    private boolean isHead = false;
+	private Cell<T> parentCell;
+	private JLabel cellValue;
+	private boolean isHead = false;
 
-    /* Constants */
-    private static final int CELL_WIDTH = 40; // px;
-    private static final int CELL_HEIGHT = 40; // px;
-    private static final Color NULL_COLOR = Color.LIGHT_GRAY;
-    private static final Color DEFAULT_COLOR = Color.WHITE;
-    private static final Color HEAD_COLOR = Color.ORANGE;
+	/* Constants */
+	private static final int CELL_WIDTH = 40; // px;
+	private static final int CELL_HEIGHT = 40; // px;
+	private static final Color NULL_COLOR = Color.LIGHT_GRAY;
+	private static final Color DEFAULT_COLOR = Color.WHITE;
+	private static final Color HEAD_COLOR = Color.ORANGE;
 
-    /**
-     * Creates a new Cell GUI
-     *
-     * @param parentCell
-     */
-    public TCell(Cell<T> parentCell) {
-        super();
-	// Set the parent of this cell
-        this.parentCell = parentCell;
-        // Construct the element
-        this.setPreferredSize(new Dimension(CELL_WIDTH, CELL_HEIGHT));
-        this.cellValue = new JLabel();
-        this.add(this.cellValue);
-        // Set ourself as the parentCell's event handler
-        this.parentCell.addCellListener(this);
-        // Set the element as visible
-        this.setVisible(true);
-    }
+	/**
+	 * Creates a new Cell GUI
+	 *
+	 * @param parentCell
+	 */
+	public TCell(Cell<T> parentCell) {
+		super();
+		// Set the parent of this cell
+		this.parentCell = parentCell;
+		// Construct the element
+		this.setPreferredSize(new Dimension(CELL_WIDTH, CELL_HEIGHT));
+		this.cellValue = new JLabel();
+		this.add(this.cellValue);
+		// Set ourself as the parentCell's event handler
+		this.parentCell.addCellListener(this);
+		// Set the element as visible
+		this.setVisible(true);
+	}
 
-    @Override
-    public void cellEvent(CellEvent event) {
-        T value;
+	@Override
+		public void cellEvent(CellEvent event) {
+			T value;
 
-        switch (event.getEventType()) {
-            case CellEvent.NEW_VALUE:
-                value = this.parentCell.getValue();
-                this.cellValue.setText((value == null) ? " " : value.toString());
-                this.setBackground(this.isHead ? HEAD_COLOR : (value == null) ? NULL_COLOR : DEFAULT_COLOR);
-                break;
-            case CellEvent.SET_AS_HEAD:
-                this.isHead = true;
-                this.setBackground(HEAD_COLOR);
-                break;
-            case CellEvent.NO_LONGER_HEAD:
-                value = this.parentCell.getValue();
-                this.isHead = false;
-                this.setBackground((value == null) ? NULL_COLOR : DEFAULT_COLOR);
-                break;
-            default:
-                break;
-        }
-	// Force a repaint
-        this.repaint();
-    }
+			switch (event.getEventType()) {
+				case CellEvent.NEW_VALUE:
+					value = this.parentCell.getValue();
+					this.cellValue.setText((value == null) ? " " : value.toString());
+					this.setBackground(this.isHead ? HEAD_COLOR : (value == null) ? NULL_COLOR : DEFAULT_COLOR);
+					break;
+				case CellEvent.SET_AS_HEAD:
+					this.isHead = true;
+					this.setBackground(HEAD_COLOR);
+					break;
+				case CellEvent.NO_LONGER_HEAD:
+					value = this.parentCell.getValue();
+					this.isHead = false;
+					this.setBackground((value == null) ? NULL_COLOR : DEFAULT_COLOR);
+					break;
+				default:
+					break;
+			}
+			// Force a repaint
+			this.repaint();
+		}
 
 }

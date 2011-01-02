@@ -6,10 +6,10 @@ package com.nick125.thingamabob.machine.core;
  * @author kampernj. Created Oct 29, 2010.
  */
 public interface CellListener {
-    /**
-     * Handles a cell event
-     *
-     * @param event
-     */
-    public void cellEvent(CellEvent event);
+	/**
+	 * Handles a cell event
+	 *
+	 * @param event
+	 */
+	public void cellEvent(CellEvent event);
 }
